@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Furniture Store Catalog</title>
+  <style>
+    body {
+      background: #f8f9fb;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .main-header {
+      text-align: center;
+      margin-top: 42px;
+      font-size: 2.4em;
+      font-weight: bold;
+      color: #232932;
+    }
+    .tagline {
+      text-align: center;
+      color: #666;
+      margin-bottom: 44px;
+      font-size: 1.15em;
+    }
+    .products {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin: 0 auto;
+      max-width: 1100px;
+    }
+    .product-card {
+      background: #fff;
+      border: 1.5px solid #ebeef1;
+      border-radius: 11px;
+      padding: 24px;
+      width: 285px;
+      box-sizing: border-box;
+      box-shadow: 0 2px 8px rgba(80, 87, 111, 0.06);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .product-img {
+      width: 100%;
+      height: 134px;
+      object-fit: cover;
+      border-radius: 7px;
+      margin-bottom: 20px;
+      border: 1px solid #eee;
+    }
+    .product-name {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 0 0 6px 0;
+      color: #212323;
+    }
+    .product-desc {
+      color: #868686;
+      font-size: 1em;
+      margin-bottom: 12px;
+    }
+    .product-price {
+      font-weight: bold;
+      font-size: 1.07em;
+      color: #25316f;
+      margin-bottom: 19px;
+    }
+    .buy-btn {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 10px 27px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.2s;
+    }
+    .buy-btn:hover {
+      background: #183b80;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-header">Furniture Store Catalog</div>
+  <div class="tagline">Find the best furniture for your home</div>
+  <div class="products">
+    <div class="product-card">
+      <img class="product-img" src="https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?auto=format&fit=crop&w=400&q=80" alt="Classic Wood Armchair">
+      <div class="product-name" style="color:#a35505;">Armchair</div>
+      <div class="product-desc">Classic comfort, modern style. Plush tan cushions with wooden frame.</div>
+      <div class="product-price">$225</div>
+      <button class="buy-btn">Buy Now</button>
+    </div>
+    <div class="product-card">
+      <img class="product-img" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=400&q=80" alt="Contemporary Coffee Table">
+      <div class="product-name">Coffee Table</div>
+      <div class="product-desc">Contemporary glass top, solid oak legs. Blends with any décor.</div>
+      <div class="product-price">$129</div>
+      <button class="buy-btn">Buy Now</button>
+    </div>
+    <div class="product-card">
+      <img class="product-img" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Luxury Upholstered Bed">
+      <div class="product-name" style="color:#326775;">Upholstered Bed</div>
+      <div class="product-desc" style="color:#326775;">King size, cozy fabric, elegant headboard—sleep in style.</div>
+      <div class="product-price">$489</div>
+      <button class="buy-btn" style="background:#222;">Buy Now</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BookWorld - Your Online Bookstore</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4A5FC1;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        section {
+            padding: 20px;
+            background: white;
+            margin: 15px auto;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #4A5FC1;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        th {
+            background-color: #4A5FC1;
+            color: white;
+        }
+        ol, ul {
+            padding-left: 20px;
+        }
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        form input[type="submit"] {
+            background-color: #4A5FC1;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        form input[type="submit"]:hover {
+            background-color: #364bb5;
+        }
+        footer {
+            background-color: #4A5FC1;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        iframe {
+            display: block;
+            margin: auto;
+            border-radius: 5px;
+        }
+        a {
+            color: #4A5FC1;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to BookWorld</h1>
+    </header>
+
+    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794" alt="Books">
+
+    <section>
+        <p>BookWorld is a premier online bookstore. We have many genres, seasonal offers, and a safe shopping experience.</p>
+    </section>
+
+    <section>
+        <h2>Book Categories</h2>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Number of Books</th>
+                <th>Top Author</th>
+            </tr>
+            <tr>
+                <td>Fiction</td>
+                <td>2345</td>
+                <td>J.K. Rowling</td>
+            </tr>
+            <tr>
+                <td>Non-Fiction</td>
+                <td>1789</td>
+                <td>Malcolm Gladwell</td>
+            </tr>
+            <tr>
+                <td>Children's</td>
+                <td>1234</td>
+                <td>Roald Dahl</td>
+            </tr>
+            <tr>
+                <td>Science</td>
+                <td>980</td>
+                <td>Stephen Hawking</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Best-Sellers</h2>
+        <ol>
+            <li>The Great Gatsby</li>
+            <li>To Kill a Mockingbird</li>
+            <li>1984</li>
+            <li>The Catcher in the Rye</li>
+            <li>The Hobbit</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Upcoming Releases</h2>
+        <ul>
+            <li>The Midnight Library</li>
+            <li>Project Hail Mary</li>
+            <li>The Four Winds</li>
+            <li>Klara and the Sun</li>
+            <li>The Lincoln Highway</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Book Preview</h2>
+        <iframe width="400" height="250" src="https://www.youtube.com/embed/WRu_-9MBpd4" frameborder="0"></iframe>
+    </section>
+
+    <section>
+        <h2>Register for Newsletter</h2>
+        <form>
+            Name: <input type="text" name="name" required>
+            Email: <input type="email" name="email" required>
+            Favorite Genre:
+            <select name="genre">
+                <option>Fiction</option>
+                <option>Non-Fiction</option>
+                <option>Children's</option>
+                <option>Science</option>
+                <option>Fantasy</option>
+                <option>Biography</option>
+            </select>
+            Comments:
+            <textarea name="comments" rows="3"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <section>
+        <h2>Useful Links</h2>
+        <ul>
+            <li><a href="https://www.goodreads.com/" target="_blank">Goodreads</a></li>
+            <li><a href="https://www.bookbub.com/">BookBub</a></li>
+            <li><a href="https://www.nytimes.com/section/books">New York Times Books</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Contact Us</h2>
+        <p>
+            Address: 123 Book Lane, Story City, Fictionland 45678<br>
+            Phone: +1 (555) 123-4567<br>
+            Email: contact@bookworld.com
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2025 BookWorld - Your Online Bookstore
+    </footer>
+
+</body>
+</html>

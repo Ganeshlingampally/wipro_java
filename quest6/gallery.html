@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Image Lab — Gallery</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #fff; color: #222; margin: 0; padding: 20px; }
+    .header { background: #44665E; color: #fff; padding: 25px 16px 16px; font-size: 2em; font-weight: bold; margin-bottom: 30px; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 24px; }
+    .gallery-item { width: 170px; background: #fafafa; padding: 12px; border-radius: 8px; text-align: center; }
+    .gallery-item img, .gallery-item svg { max-width: 100%; border-radius: 4px; display: block; margin: 0 auto; }
+    .notes { margin-left: 40px; }
+    .row { display: flex; margin-bottom: 32px; }
+    .caption { font-size: 14px; margin-top: 10px; }
+    .submit { margin-top: 40px; }
+    .image-map { border: 1px solid #bbb; }
+  </style>
+</head>
+<body>
+  <div class="header">Image Lab — Gallery</div>
+  <p>Practice with &lt;img&gt;, srcset, &lt;picture&gt;, SVG, and accessibility</p>
+  <div class="row">
+    <div>
+      <h3>Responsive Image Gallery</h3>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=300&q=80" alt="Fresh apples in a basket" loading="lazy">
+          <div class="caption">Fresh apples – 10kg crate.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=300&q=80" alt="Gourmet cheese platter" loading="lazy">
+          <div class="caption">Gourmet Cheese Platter<br>(WebP served when supported).</div>
+        </div>
+        <div class="gallery-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="72" height="36" aria-labelledby="svgBikeTitle svgBikeDesc" role="img">
+            <title id="svgBikeTitle">Delivery Bicycle</title>
+            <desc id="svgBikeDesc">A simple flat design illustration of a blue delivery bicycle</desc>
+            <circle cx="16" cy="32" r="8" fill="#7FA8E5"/>
+            <circle cx="56" cy="32" r="8" fill="#4E86D6"/>
+            <rect x="13" y="20" width="30" height="7" fill="#B8D7F3"/>
+            <rect x="42" y="27" width="12" height="3" fill="#3C6BAF"/>
+            <rect x="18" y="18" width="16" height="7" fill="#63A7C7"/>
+          </svg>
+          <div class="caption">Delivery bicycle (SVG inline with accessible title/desc).</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=300&q=80" alt="Modern wood divider" loading="lazy">
+          <div class="caption">Modern wood divider<br>(not read by screen readers).</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=300&q=80"
+            alt="Floor plan map of aisles"
+            usemap="#aislemap"
+            class="image-map"
+            loading="lazy"
+            width="150"
+            height="85">
+          <map name="aislemap">
+            <area shape="rect" coords="0,50,75,85" alt="Aisle 1" href="#aisle1">
+            <area shape="rect" coords="76,50,150,85" alt="Aisle 2" href="#aisle2">
+          </map>
+          <div class="caption">Click a section to navigate to that aisle (image map)</div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <h3>Notes</h3>
+      <ul>
+        <li>Use <code>srcset</code> and <code>&lt;picture&gt;</code> to reduce bandwidth and serve modern formats.</li>
+        <li>Add <code>loading="lazy"</code> to defer off-screen images.</li>
+      </ul>
+    </div>
+  </div>
+  <form class="submit">
+    <button type="submit">Submit Lab</button>
+  </form>
+</body>
+</html>

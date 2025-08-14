@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Conference Registration Form</title>
+</head>
+<body>
+    <h2 style="text-align:center; font-family: Georgia, serif;">ONLINE CONFERENCES REGISTRATION FORM</h2>
+    <form action="register.php" method="post" enctype="multipart/form-data">
+        <table style="width:90%; margin:auto; border:1px solid #444; padding:20px; font-family:Georgia,serif;">
+            <tr>
+                <td colspan="2" style="font-weight:bold; font-size:18px; padding-top:10px;">Personal Information</td>
+            </tr>
+            <tr>
+                <td style="width:30%;">Full Name <span style="color:red;">*</span><br>
+                    <span style="font-size:10px;">(Please enter your full name)</span>
+                </td>
+                <td><input type="text" name="fullname" style="width:70%;" id="fullname"></td>
+            </tr>
+            <tr>
+                <td>Email Address <span style="color:red;">*</span><br>
+                    <span style="font-size:10px;">Format: user@example.com</span>
+                </td>
+                <td><input type="text" name="email" style="width:70%;" id="email"></td>
+            </tr>
+            <tr>
+                <td>Gender <span style="color:red;">*</span></td>
+                <td>
+                    <input type="radio" name="gender" value="Male" id="gender_m"> Male
+                    <input type="radio" name="gender" value="Female" id="gender_f"> Female
+                </td>
+            </tr>
+            <tr>
+                <td>Country <span style="color:red;">*</span></td>
+                <td>
+                    <select name="country" id="country">
+                        <option value="">--Select--</option>
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Australia">Australia</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Profile Photo Upload <span style="color:red;">*</span></td>
+                <td><input type="file" name="photo" id="photo"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="font-weight:bold; font-size:18px; padding-top:20px;">Account Preferences</td>
+            </tr>
+            <tr>
+                <td>Username <span style="color:red;">*</span></td>
+                <td><input type="text" name="username" style="width:70%;" id="username"></td>
+            </tr>
+            <tr>
+                <td>Password <span style="color:red;">*</span></td>
+                <td><input type="password" name="password" style="width:70%;" id="password"></td>
+            </tr>
+            <tr>
+                <td>Confirm Password <span style="color:red;">*</span></td>
+                <td><input type="password" name="confirmpass" style="width:70%;" id="confirmpass"></td>
+            </tr>
+            <tr>
+                <td>Interests</td>
+                <td>
+                    <input type="checkbox" name="interests[]" value="Web Development"> Web Development
+                    <input type="checkbox" name="interests[]" value="AI"> AI
+                    <input type="checkbox" name="interests[]" value="Cloud"> Cloud
+                </td>
+            </tr>
+            <tr>
+                <td>Preferred Contact Method <span style="color:red;">*</span></td>
+                <td>
+                    <input type="radio" name="contact" value="Email" id="contact_email"> Email
+                    <input type="radio" name="contact" value="Phone" id="contact_phone"> Phone
+                </td>
+            </tr>
+            <tr>
+                <td>Special Requirements / Comments</td>
+                <td>
+                    <textarea name="comments" rows="3" cols="50" style="width:70%;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold; font-size:18px; padding-top:20px;">Payment Details</td>
+            </tr>
+            <tr>
+                <td>Payment Method <span style="color:red;">*</span></td>
+                <td>
+                    <select name="paymentmethod" id="paymentmethod">
+                        <option value="">--Select--</option>
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="Debit Card">Debit Card</option>
+                        <option value="PayPal">PayPal</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Card Number <span style="color:red;">*</span></td>
+                <td><input type="text" name="cardnumber" style="width:70%;" id="cardnumber"></td>
+            </tr>
+            <tr>
+                <td>Expiry Date <span style="color:red;">*</span></td>
+                <td>
+                    <select name="exp_month" id="exp_month">
+                        <option value="">Month</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <select name="exp_year" id="exp_year">
+                        <option value="">Year</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>CVV <span style="color:red;">*</span></td>
+                <td><input type="password" name="cvv" style="width:60px;" maxlength="3" id="cvv"></td>
+            </tr>
+            <tr>
+                <td>Terms & Conditions <span style="color:red;">*</span></td>
+                <td>
+                    <input type="checkbox" name="terms" id="terms"> I agree to Terms
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center; padding-top:25px;">
+                    <input type="submit" value="Submit" style="padding:8px 20px; margin-right:20px;">
+                    <input type="reset" value="Reset" style="padding:8px 20px;">
+                    <br>
+                    <span style="font-size:13px; color:red;">Fields marked with * are required</span>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

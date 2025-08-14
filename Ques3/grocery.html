@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Grocery Order Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 15px;
+      background-color: #28a745;
+      color: white;
+      margin: 0;
+    }
+
+    form {
+      max-width: 600px;
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    fieldset {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+
+    legend {
+      font-weight: bold;
+      color: #28a745;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      margin-top: 5px;
+      padding: 8px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="checkbox"], input[type="radio"] {
+      width: auto;
+      margin-right: 5px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    button[type="reset"] {
+      background-color: #dc3545;
+    }
+
+    button[type="reset"]:hover {
+      background-color: #c82333;
+    }
+
+    .inline-options label {
+      display: inline-block;
+      margin-right: 20px;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <h2>Online Grocery Order Form</h2>
+  <form action="order.php" method="post">
+    <fieldset>
+      <legend>Customer Details</legend>
+      <label>
+        Full Name:
+        <input type="text" name="fullname" required placeholder="Enter your full name">
+      </label>
+      <label>
+        Email:
+        <input type="email" name="email" required placeholder="Enter your email">
+      </label>
+      <label>
+        Mobile Number:
+        <input type="tel" name="mobile" required pattern="[0-9]{10}" placeholder="10-digit mobile">
+      </label>
+      <label>
+        Delivery Address:
+        <textarea name="address" required placeholder="Enter your address"></textarea>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Order Details</legend>
+      <label>Grocery Items:</label>
+      <div class="inline-options">
+        <label><input type="checkbox" name="items[]" value="Rice" multiple> Rice</label>
+        <label><input type="checkbox" name="items[]" value="Milk" multiple> Milk</label>
+        <label><input type="checkbox" name="items[]" value="Bread" multiple> Bread</label>
+        <label><input type="checkbox" name="items[]" value="Eggs" multiple> Eggs</label>
+        <label><input type="checkbox" name="items[]" value="Sugar" multiple> Sugar</label>
+      </div>
+
+      <label>
+        Quantity:
+        <input type="number" name="quantity" required min="1" max="10" placeholder="1-10">
+      </label>
+      <label>
+        Delivery Date:
+        <input type="date" name="deldate" required>
+      </label>
+      <label>
+        Preferred Delivery Time:
+        <input type="time" name="deltime" required>
+      </label>
+
+      <label>Payment Method:</label>
+      <div class="inline-options">
+        <label><input type="radio" name="payment" value="COD" required> Cash on Delivery</label>
+        <label><input type="radio" name="payment" value="UPI"> UPI</label>
+        <label><input type="radio" name="payment" value="Card"> Card</label>
+      </div>
+
+      <label>
+        Special Instructions (optional):
+        <textarea name="instructions" placeholder="Any instruction (optional)"></textarea>
+      </label>
+      <label>
+        <input type="checkbox" name="confirm" required> I confirm my order
+      </label>
+      <br><br>
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+    </fieldset>
+  </form>
+</body>
+</html>

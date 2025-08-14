@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Multimedia Lab</title>
+  <style>
+    body {
+      background: #27292B;
+      color: #222;
+      font-family: Arial, sans-serif;
+    }
+    .lab-container {
+      background: #fff;
+      max-width: 520px;
+      margin: 40px auto;
+      padding: 32px 32px 24px;
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .lab-item {
+      margin-bottom: 28px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5em;
+    }
+    .pdf-thumb {
+      display: flex;
+      align-items: center;
+      margin-bottom: 7px;
+    }
+    .pdf-thumb img {
+      height: 48px;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+    iframe, embed {
+      width: 100%;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="lab-container">
+    <h2>HTML5 Multimedia Lab</h2>
+    <p>This page demonstrates video, audio, embed (PDF), iframe, and inline SVG. Below is a visual preview.</p>
+    
+    <div class="lab-item">
+      <label>Video (sample.mp4)</label>
+      <video controls width="350" poster="poster.jpg">
+        <source src="sample.mp4" type="video/mp4">
+        Sorry, your browser doesn't support HTML5 video.
+      </video>
+    </div>
+
+    <div class="lab-item">
+      <label>Audio (sample.mp3)</label>
+      <audio controls loop>
+        <source src="sample.mp3" type="audio/mp3">
+        Sorry, your browser doesn't support HTML5 audio.
+      </audio>
+    </div>
+
+    <div class="lab-item">
+      <label>Embed (document.pdf)</label>
+      <div class="pdf-thumb">
+        <img src="pdf-icon.png" alt="PDF Icon">
+        <a href="document.pdf" download>If not visible, download document.pdf</a>
+      </div>
+      <embed src="document.pdf" type="application/pdf" width="220" height="150">
+    </div>
+
+    <div class="lab-item">
+      <label>Iframe (demo.html)</label>
+      <iframe src="demo.html" height="80" title="demo.html preview"></iframe>
+    </div>
+
+    <div class="lab-item">
+      <label>Inline SVG</label>
+      <svg viewBox="0 0 100 100" width="100" height="50" aria-label="Red Play Button">
+        <polygon points="40,30 70,50 40,70" fill="red"/>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
