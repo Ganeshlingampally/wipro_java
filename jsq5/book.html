@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JSON – Book Store Management</title>
+</head>
+<body>
+  <script>
+    let books = [
+      { title: "JavaScript Basics", author: "Anu", price: 450, available: true },
+      { title: "HTML & CSS", author: "Devi", price: 350, available: false }
+    ];
+
+    function displayBooks(list) {
+      for (let book of list) {
+        document.write(`Title: ${book.title}, Author: ${book.author}, Price: ${book.price} ₹, Available: ${book.available}<br>`);
+      }
+    }
+
+    function displayTitles(list) {
+      document.write(list.map(b => b.title).join(", ") + "<br>");
+    }
+
+    document.write("<b>All Books:</b><br>");
+    displayBooks(books);
+
+    document.write("<br><b>Available Books:</b><br>");
+    let availableBooks = books.filter(book => book.available);
+    for (let book of availableBooks) {
+      document.write(`Title: ${book.title}, Author: ${book.author}, Price: ${book.price} ₹<br>`);
+    }
+
+    books.push({ title: "Node.js Guide", author: "Ravi", price: 550, available: true });
+    document.write("<br><b>After Adding:</b> ");
+    displayTitles(books);
+
+    let bookToUpdate = books.find(book => book.title === "JavaScript Basics");
+    if (bookToUpdate) {
+      bookToUpdate.price = 500;
+    }
+    document.write("<b>After Price Update:</b> ");
+    for (let book of books) {
+      document.write(`${book.title} - ${book.price} ₹, `);
+    }
+    document.write("<br>");
+
+    let indexToDelete = books.findIndex(book => book.title === "JavaScript Basics");
+    if (indexToDelete !== -1) {
+      books.splice(indexToDelete, 1);
+    }
+    document.write("<b>After Deletion:</b> ");
+    displayTitles(books);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Income Tax Calculator</title>
+    <script>
+        function calculateTax() {
+            const fullName = document.getElementById("fullName").value.trim();
+            const pan = document.getElementById("pan").value.trim();
+            const dobInput = document.getElementById("dob").value;
+            const annualIncome = parseFloat(document.getElementById("annualIncome").value);
+
+            if (!fullName) {
+                alert("Please enter your full name.");
+                return;
+            }
+            const panPattern = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+            if (!panPattern.test(pan)) {
+                alert("PAN number must be exactly 10 characters: 5 uppercase letters, 4 digits, 1 uppercase letter.");
+                return;
+            }
+            if (!dobInput) {
+                alert("Please enter your Date of Birth.");
+                return;
+            }
+            const dob = new Date(dobInput);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const m = today.getMonth() - dob.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+            if (age < 0) {
+                alert("Date of Birth cannot be in the future.");
+                return;
+            }
+            if (isNaN(annualIncome) || annualIncome < 0) {
+                alert("Please enter a valid non-negative number for annual income.");
+                return;
+            }
+
+            
+            let tax = 0;
+            if (annualIncome <= 250000) {
+                tax = 0;
+            } else if (annualIncome <= 500000) {
+                tax = (annualIncome - 250000) * 0.05;
+            } else if (annualIncome <= 1000000) {
+                tax = (250000 * 0.05) + (annualIncome - 500000) * 0.20;
+            } else {
+                tax = (250000 * 0.05) + (500000 * 0.20) + (annualIncome - 1000000) * 0.30;
+            }
+
+            tax = Math.round(tax);
+
+            const output = 
+                `Name: ${fullName.toUpperCase()}\n` +
+                `PAN: ${pan.toUpperCase()}\n` +
+                `Age: ${age} years\n` +
+                `Annual Income: ₹${annualIncome.toLocaleString()}\n` +
+                `Calculated Tax: ₹${tax.toLocaleString()}`;
+
+            alert(output);
+        }
+    </script>
+</head>
+<body>
+    <h2>Income Tax Calculator</h2>
+    <label for="fullName">Full Name:</label><br>
+    <input type="text" id="fullName" placeholder="Enter full name"><br><br>
+
+    <label for="pan">PAN Number:</label><br>
+    <input type="text" id="pan" maxlength="10" placeholder="ABCDE1234F"><br><br>
+
+    <label for="dob">Date of Birth:</label><br>
+    <input type="date" id="dob"><br><br>
+
+    <label for="annualIncome">Annual Income (₹):</label><br>
+    <input type="number" id="annualIncome" placeholder="Enter annual income" min="0" step="any"><br><br>
+
+    <button onclick="calculateTax()">Calculate Tax</button>
+</body>
+</html>

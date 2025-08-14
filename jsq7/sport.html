@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sports Team Player Details</title>
+</head>
+<body>
+  <script>
+    const player1 = {
+      name: "Virat Kohli",
+      age: 36,
+      sport: "Cricket",
+      stats: {
+        matches: 500,
+        runs: 25000,
+        average: 57.2
+      }
+    };
+
+    const { name, sport, stats: { matches, runs, average } } = player1;
+
+    console.log(`Player ${name} plays ${sport}. Matches: ${matches} | Runs: ${runs} | Batting Average: ${average}`);
+
+    const player2 = {
+      name: "Lionel Messi",
+      age: 38,
+      sport: "Football",
+      stats: {
+        matches: 800,
+        goals: 720,
+        assists: 300
+      }
+    };
+
+    const players = [player1, player2];
+
+    const [p1, p2] = players;
+
+    const { name: n1, sport: s1, stats: { matches: m1, runs: r1, average: a1 } } = p1;
+    console.log(`Player ${n1} plays ${s1}. Matches: ${m1} | Runs: ${r1} | Batting Average: ${a1}`);
+
+    const { name: n2, sport: s2, stats: { matches: m2, goals: g2, assists: as2 } } = p2;
+    console.log(`Player ${n2} plays ${s2}. Matches: ${m2} | Goals: ${g2} | Assists: ${as2}`);
+  </script>
+</body>
+</html>

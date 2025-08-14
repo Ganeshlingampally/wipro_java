@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Closures – Share Market Portfolio Tracker</title>
+    <script>
+        function createPortfolio() {
+            let portfolio = [];
+
+            function buyShare(company, quantity, price) {
+
+                let existing = portfolio.find(s => s.company === company);
+                if (existing) {
+                    existing.quantity += quantity;
+                    existing.price = price; 
+                } else {
+                    portfolio.push({ company, quantity, price });
+                }
+                console.log(`Bought ${quantity} shares of ${company} at ₹${price} each.`);
+            }
+
+            function sellShare(company, quantity) {
+                let existing = portfolio.find(s => s.company === company);
+                if (existing) {
+                    if (quantity <= existing.quantity) {
+                        existing.quantity -= quantity;
+                        console.log(`Sold ${quantity} shares of ${company}.`);
+                        if (existing.quantity === 0) {
+                            portfolio = portfolio.filter(s => s.company !== company);
+                        }
+                    } else {
+                        console.log(`Not enough shares of ${company} to sell.`);
+                    }
+                } else {
+                    console.log(`${company} not found in portfolio.`);
+                }
+            }
+
+            function totalValue() {
+                let total = portfolio.reduce((sum, s) => sum + (s.quantity * s.price), 0);
+                console.log(`Portfolio Value: ₹${total}`);
+            }
+            return {
+                buyShare,
+                sellShare,
+                totalValue
+            };
+        }
+        window.onload = function() {
+            const myPortfolio = createPortfolio();
+
+            myPortfolio.buyShare("TCS", 10, 3500);
+            myPortfolio.buyShare("Infosys", 5, 1500);
+            myPortfolio.sellShare("TCS", 3);
+            myPortfolio.totalValue();
+            console.log(myPortfolio.portfolio); 
+        };
+    </script>
+</head>
+<body>
+    <h2>Share Market Portfolio Tracker (Closure Example)</h2>
+    <p>Open the browser console (F12) to see the output.</p>
+</body>
+</html>

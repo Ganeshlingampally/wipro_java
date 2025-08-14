@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alert, Confirm, and Prompt – Quiz Game</title>
+    <script>
+        window.onload = function() {
+            alert("Welcome to the Quiz Game!");
+            let userName = prompt("What is your name?");
+            if (!userName) {
+                userName = "Player";
+            }
+            let ready = confirm("Hi " + userName + "! Are you ready for the quiz?");
+            if (ready) {
+                let answer = prompt(
+                    "What is the capital of France?\n" +
+                    "a) Berlin\n" +
+                    "b) Paris\n" +
+                    "c) Madrid"
+                );
+                if (answer && answer.toLowerCase() === "b" || answer.toLowerCase() === "paris") {
+                    alert("🎉 Correct! Well done, " + userName + "!");
+                } else {
+                    alert("❌ Wrong answer, " + userName + ". The correct answer is Paris.");
+                }
+            } else {
+                alert("Okay, maybe next time! Goodbye, " + userName + "!");
+            }
+        };
+    </script>
+</head>
+<body>
+</body>
+</html>

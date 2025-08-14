@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Equality & Inequality Checker</title>
+    <script>
+        function checkEquality() {
+            let value1 = prompt("Enter the first value:");
+            let value2 = prompt("Enter the second value:");
+
+            let type1 = typeof value1;
+            let type2 = typeof value2;
+
+            let num1 = Number(value1);
+            let num2 = Number(value2);
+
+            let eq = (value1 == value2);
+            let seq = (value1 === value2);
+            let neq = (value1 != value2);
+            let sneq = (value1 !== value2);
+
+            let output = 
+                `First Value: ${value1} (${type1})\n` +
+                `Second Value: ${value2} (${type2})\n\n` +
+
+                `Using ==  : ${eq}  → Equality ignores type, converts if needed.\n` +
+                `Using === : ${seq} → Strict equality checks both value and type.\n` +
+                `Using !=  : ${neq}  → Inequality ignores type conversion.\n` +
+                `Using !== : ${sneq} → Strict inequality checks type as well.\n\n` +
+
+                `Number Conversion:\n` +
+                `First Value as Number: ${num1} (${typeof num1})\n` +
+                `Second Value as Number: ${num2} (${typeof num2})`;
+
+            alert(output);
+        }
+    </script>
+</head>
+<body>
+    <h2>Equality & Inequality Checker</h2>
+    <button onclick="checkEquality()">Enter Values & Compare</button>
+</body>
+</html>

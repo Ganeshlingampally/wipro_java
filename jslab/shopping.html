@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Product Stock Example</title>
+</head>
+<body>
+  <h2>Product Stock Management</h2>
+  <p id="output"></p>
+  <script>
+    var product = (function() {
+      var stock = 0;
+      return {
+        getStock: function() {
+          return stock;
+        },
+        addStock: function(quantity) {
+          stock = stock + quantity;
+          document.getElementById("output").innerHTML += " Stock after adding: " + stock + "<br>";
+        },
+        sell: function(quantity) {
+          if (stock >= quantity) {
+            stock = stock - quantity;
+            document.getElementById("output").innerHTML+=" Sold "+quantity+" items.<br> ";
+          } else {
+            document.getElementById("output").innerHTML+=" Insufficient stock<br> ";
+          }
+        }
+      };
+    })();
+    product.addStock(10); 
+    product.sell(3);      
+    document.getElementById("output").innerHTML += "Stock remaining: " + product.getStock();
+  </script>
+</body>
+</html>

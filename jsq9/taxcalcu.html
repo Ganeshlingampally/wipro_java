@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Income Tax Calculator (Multiple Callbacks)</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f8faff; }
+    .container { max-width: 460px; margin: 40px auto; background: #fff; padding: 32px 28px; border-radius: 11px; box-shadow: 0 4px 24px rgba(60,72,105,.16);}
+    .result { background: #f9f9f9; border-radius: 6px; margin-top: 20px; padding: 15px; font-size: 1.07em;}
+    .records { margin-top: 18px; font-size: 1em;}
+    .records-title { font-weight: bold; margin-bottom: 6px;}
+    .records-list { background: #faf4e8; border-radius: 8px; padding: 11px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2 style="text-align:center;">Income Tax Calculator<br>(Multiple Callbacks)</h2>
+  <form id="taxForm">
+    <label>Name:<br><input type="text" id="name" required></label><br><br>
+    <label>PAN:<br><input type="text" id="pan" required></label><br><br>
+    <label>Annual Income:<br><input type="number" id="income" required min="0"></label><br><br>
+    <button type="submit">Calculate Tax</button>
+  </form>
+  
+  <div class="result" id="result"></div>
+  <div class="records" id="records">
+    <div class="records-title" id="recordsTitle"></div>
+    <div class="records-list" id="recordsList"></div>
+  </div>
+</div>
+
+<script>
+  const records = [];
+
+  function calculateTax(name, pan, income, callback) {
+    let tax = 0;
+    if (income <= 250000) tax = 0;
+    else if (income <= 500000) tax = (income - 250000) * 0.05;
+    else if (income <= 1000000) tax = 250000 * 0.05 + (income - 500000) * 0.2;
+    else tax = 250000 * 0.05 + 500000 * 0.2 + (income - 1000000) * 0.3;
+
+    const result = { name, pan, income, tax: Math.round(tax) };
+    callback(result);
+  }
+
+  function logToConsole(record) {
+    console.log(`Name: ${record.name}\nPAN: ${record.pan}\nAnnual Income: ₹${record.income}\nCalculated Tax: ₹${record.tax}`);
+  }
+
+  function displayOnPage(record) {
+    document.getElementById('result').innerHTML =
+      `<b>Name:</b> ${record.name}<br>
+       <b>PAN:</b> ${record.pan}<br>
+       <b>Annual Income:</b> ₹${record.income}<br>
+       <b>Calculated Tax:</b> ₹${record.tax}`;
+  }
+
+  function saveToRecords(record) {
+    records.push(record);
+    let html = "";
+    records.forEach((rec, idx) => {
+      html += `<div>#${idx + 1}: <b>${rec.name}</b> | Income: ₹${rec.income} | Tax: ₹${rec.tax}</div>`;
+    });
+    document.getElementById('recordsTitle').textContent = "All Tax Records (JSON Array):";
+    document.getElementById('recordsList').innerHTML = html;
+  }
+
+  document.getElementById('taxForm').onsubmit = function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const pan = document.getElementById('pan').value.trim();
+    const income = Number(document.getElementById('income').value);
+
+    calculateTax(name, pan, income, function(record) {
+      logToConsole(record);
+      displayOnPage(record);
+      saveToRecords(record);
+    });
+  };
+</script>
+</body>
+</html>

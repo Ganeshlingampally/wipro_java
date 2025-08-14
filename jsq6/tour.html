@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tour Booking Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding: 30px;
+    }
+    .form-container {
+      max-width: 480px;
+      margin: auto;
+      background: white;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .summary {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #e9f7ef;
+      border: 1px solid #c3e6cb;
+      display: none;
+    }
+    .summary h4 {
+      margin-bottom: 15px;
+      color: #155724;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2 class="text-center mb-4">Tour Booking Form</h2>
+    <form id="tourBookingForm">
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name:</label>
+        <input type="text" id="fullName" class="form-control" placeholder="Enter full name" required />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address:</label>
+        <input type="email" id="email" class="form-control" placeholder="Enter email" required />
+      </div>
+      <div class="mb-3">
+        <label for="destination" class="form-label">Destination:</label>
+        <select id="destination" class="form-select" required>
+          <option value="" disabled selected>Select destination</option>
+          <option value="Ooty">Ooty</option>
+          <option value="Goa">Goa</option>
+          <option value="Manali">Manali</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="days" class="form-label">Number of Days:</label>
+        <input type="number" id="days" class="form-control" min="1" placeholder="Enter number of days" required />
+      </div>
+      <div class="mb-3">
+        <label for="travelers" class="form-label">Number of Travelers:</label>
+        <input type="number" id="travelers" class="form-control" min="1" placeholder="Enter number of travelers" required />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Book Now</button>
+    </form>
+
+    <div class="summary mt-4" id="bookingSummary">
+      <h4>Booking Summary</h4>
+      <p id="summaryName"></p>
+      <p id="summaryEmail"></p>
+      <p id="summaryDestination"></p>
+      <p id="summaryDays"></p>
+      <p id="summaryTravelers"></p>
+      <p id="summaryTotalPrice" class="fw-bold"></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('tourBookingForm').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const destination = document.getElementById('destination').value;
+      const days = parseInt(document.getElementById('days').value);
+      const travelers = parseInt(document.getElementById('travelers').value);
+
+      const prices = {
+        "Ooty": 2000,
+        "Goa": 3000,
+        "Manali": 4000
+      };
+
+      if (!fullName || !email || !destination || isNaN(days) || days < 1 || isNaN(travelers) || travelers < 1) {
+        alert('Please fill out all fields correctly.');
+        return;
+      }
+
+      const totalPrice = prices[destination] * days * travelers;
+
+      document.getElementById('summaryName').textContent = `Name: ${fullName}`;
+      document.getElementById('summaryEmail').textContent = `Email: ${email}`;
+      document.getElementById('summaryDestination').textContent = `Destination: ${destination}`;
+      document.getElementById('summaryDays').textContent = `Days: ${days}`;
+      document.getElementById('summaryTravelers').textContent = `Travelers: ${travelers}`;
+      document.getElementById('summaryTotalPrice').textContent = `Total Price: ₹${totalPrice.toLocaleString()}`;
+
+      document.getElementById('bookingSummary').style.display = 'block';
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
